@@ -1,6 +1,6 @@
 # drf_spyder
 
-Подготовка и запуск проекта:
+Подготовка и запуск проекта: \n
 docker-compose up -d --build  - создаем и поднимаем контейнер проекта
 docker-compose exec drf_spyder python manage.py migrate --noinput  - создаём миграции в базу данных
 docker-compose exec drf_spyder python manage.py createsuperuser - создаём администратора
