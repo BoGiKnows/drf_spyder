@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  drf_spyder:
+    build: .
+    ports:
+      - "8000:8000"
+
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+    env_file:
+      - ./.env.dev
+
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+volumes:
+  postgres_data:
